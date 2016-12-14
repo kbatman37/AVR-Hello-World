@@ -31,7 +31,7 @@ ISR(PCINT1_vect){
 }
 
 // the main function
-int main4(void)
+int main(void)
 {
 	// set port B2 to output
 	DDRB |= (1 << DDB2);

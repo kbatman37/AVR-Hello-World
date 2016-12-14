@@ -16,7 +16,7 @@
 #define LED_OFF		PINB &= ~(1 << PINB5)
 #define LED_TOGGLE	PINB |= (1 << PINB5)
 
-int main3(void)
+int main(void)
 {
 	// set port B2 to output
 	DDRB |= (1 << DDB2);

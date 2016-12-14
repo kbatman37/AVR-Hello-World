@@ -8,8 +8,9 @@
 // Basic version, turn an LED on
 
 #include <avr/io.h>
+#include "avr/iotn2313.h"
 
-int main1(void)
+int main(void)
 {
 	// set port B2 to output
 	DDRB |= (1 << DDB2);

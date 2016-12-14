@@ -12,7 +12,7 @@
 
 #define F_CPU 1000000UL // we are specifying 1MHz clock frequency (as a unsigned long)
 
-int main2(void)
+int main(void)
 {
 	// set port B2 to output
 	DDRB |= (1 << DDB2);
