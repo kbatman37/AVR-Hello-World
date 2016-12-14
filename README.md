@@ -22,3 +22,7 @@ Files in `HelloWorld` are files created mostly when following the [Getting Start
 - [Receiver: WRL-10532](https://www.digikey.com/product-detail/en/sparkfun-electronics/WRL-10532/1568-1173-ND/5673759)
 - [Speakers: GF0668](https://www.digikey.com/product-detail/en/cui-inc/GF0668/GF0668-ND/304440)
 - [N-Channel MOSFET: FQP30N06L](https://www.sparkfun.com/products/10213)
+
+## BusPirate Reference
+- SparkFun cable mapping
+![](https://i.imgur.com/nHZgfFE.png)
