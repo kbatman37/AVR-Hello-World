@@ -162,18 +162,18 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="HelloWorld.cpp">
+    <Compile Include="HelloWorld.cpp">
       <SubType>compile</SubType>
-    </None>
+    </Compile>
     <None Include="v5.cpp">
       <SubType>compile</SubType>
     </None>
     <None Include="v4.cpp">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="v1.cpp">
+    <None Include="v1.cpp">
       <SubType>compile</SubType>
-    </Compile>
+    </None>
     <None Include="v2.cpp">
       <SubType>compile</SubType>
     </None>

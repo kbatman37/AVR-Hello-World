@@ -8,16 +8,21 @@
 // Basic version, turn an LED on
 
 #include <avr/io.h>
-#include "avr/iotn2313.h"
+
+// Some macros that make the code more readable
+#define output_low(port,pin) port &= ~(1<<pin)
+#define output_high(port,pin) port |= (1<<pin)
+#define set_input(portdir,pin) portdir &= ~(1<<pin)
+#define set_output(portdir,pin) portdir |= (1<<pin)
 
 int main(void)
 {
 	// set port B2 to output
-	DDRB |= (1 << DDB2);
+	set_output(DDRB,PB2);
 	
     while(1)
     {
 		// set port B2 to high
-		PORTB |= (1 << PORTB5);
+		output_high(PORTB,PB2);
     }
 }
