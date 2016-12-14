@@ -51,4 +51,4 @@ Files in `HelloWorld` are files created mostly when following the [Getting Start
 
 ## AVRDUDE
 - `avrdude -c buspirate -p attiny2313 -P COM3 -v`
-- `avrdude -c buspirate -p attiny2313 -P COM3 -u -U flash:w:HelloWorld.hex`
+- `avrdude -c buspirate -p attiny2313 -P COM3 -U flash:w:HelloWorld.hex`
