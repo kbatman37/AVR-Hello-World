@@ -12,6 +12,7 @@ Files in `HelloWorld` are files created mostly when following the [Getting Start
 - [Running TX433 and RX433 RF modules with AVR microcontrollers](http://winavr.scienceprog.com/example-avr-projects/running-tx433-and-rx433-rf-modules-with-avr-microcontrollers.html)
 - [MP3 Player Shield Hookup Guide V15](https://learn.sparkfun.com/tutorials/mp3-player-shield-hookup-guide-v15)
 - [LED Series Resitor Calculator](https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-led-series-resistor)
+- [LED Tutorial](https://learn.sparkfun.com/tutorials/light-emitting-diodes-leds)
 
 ## ATtiny2313 pinout
 ![](http://arduinolearning.com/wp-content/uploads/2016/08/attiny2310arduino.jpg)
@@ -23,6 +24,7 @@ Files in `HelloWorld` are files created mostly when following the [Getting Start
 - [Receiver: WRL-10532](https://www.digikey.com/product-detail/en/sparkfun-electronics/WRL-10532/1568-1173-ND/5673759)
 - [Speakers: GF0668](https://www.digikey.com/product-detail/en/cui-inc/GF0668/GF0668-ND/304440)
 - [N-Channel MOSFET: FQP30N06L](https://www.sparkfun.com/products/10213)
+- [LED: COM-12062](https://www.sparkfun.com/products/12062)
 
 ## BusPirate Reference
 - SparkFun cable mapping
