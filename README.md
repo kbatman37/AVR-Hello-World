@@ -13,6 +13,7 @@ Files in `HelloWorld` are files created mostly when following the [Getting Start
 - [MP3 Player Shield Hookup Guide V15](https://learn.sparkfun.com/tutorials/mp3-player-shield-hookup-guide-v15)
 - [LED Series Resitor Calculator](https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-led-series-resistor)
 - [LED Tutorial](https://learn.sparkfun.com/tutorials/light-emitting-diodes-leds)
+- [AVRDUDE Tutorial](http://www.ladyada.net/learn/avr/avrdude.html)
 
 ## ATtiny2313 pinout
 ![](http://arduinolearning.com/wp-content/uploads/2016/08/attiny2310arduino.jpg)
@@ -29,3 +30,13 @@ Files in `HelloWorld` are files created mostly when following the [Getting Start
 ## BusPirate Reference
 - SparkFun cable mapping
 ![](https://i.imgur.com/nHZgfFE.png)
+- [Pin mapping to AVR](http://dangerousprototypes.com/docs/Bus_Pirate_AVR_Programming)
+![](https://i.imgur.com/kDTiDIe.png)
+| BusPirate Signal | AVR Signal | ISP pin (6) | BusPirate Cable Color (SparkFun) | ATtiny2313 Pin | ATmega328P pin |
+|------------------|------------|-------------|----------------------------------|----------------|----------------|
+| GND              | GND        | 6           | Black                            | 10             | 8              |
+| +5V or +3.3V     | Vcc        | 2           | Grey or White                    | 20             | 7              |
+| CS               | RESET      | 5           | Red                              | 1              | 1              |
+| MOSI             | MOSI       | 4           | Pink / Orange                    | 17             | 17 (PB3)       |
+| MISO             | MISO       | 1           | Brown                            | 18             | 18 (PB4)       |
+| SCLK/CLK         | SCK        | 3           | Yellow                           | 19             | 19 (PB5)       |
