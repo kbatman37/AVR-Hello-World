@@ -11,6 +11,7 @@ Files in `HelloWorld` are files created mostly when following the [Getting Start
 ## Other Links
 - [Running TX433 and RX433 RF modules with AVR microcontrollers](http://winavr.scienceprog.com/example-avr-projects/running-tx433-and-rx433-rf-modules-with-avr-microcontrollers.html)
 - [MP3 Player Shield Hookup Guide V15](https://learn.sparkfun.com/tutorials/mp3-player-shield-hookup-guide-v15)
+- [LED Series Resitor Calculator](https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-led-series-resistor)
 
 ## ATtiny2313 pinout
 ![](http://arduinolearning.com/wp-content/uploads/2016/08/attiny2310arduino.jpg)
