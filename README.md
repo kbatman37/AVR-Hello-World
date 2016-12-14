@@ -28,10 +28,14 @@ Files in `HelloWorld` are files created mostly when following the [Getting Start
 - [LED: COM-12062](https://www.sparkfun.com/products/12062)
 
 ## BusPirate Reference
+
+**NOTE TO SELF: run wire directly, ribbon cable does not work**
+
 - SparkFun cable mapping
-![](https://i.imgur.com/nHZgfFE.png)
+	- ![](https://i.imgur.com/nHZgfFE.png)
 - [Pin mapping to AVR](http://dangerousprototypes.com/docs/Bus_Pirate_AVR_Programming)
-![](https://i.imgur.com/kDTiDIe.png)
+	- ![](https://i.imgur.com/kDTiDIe.png)
+- Table defined above with ribbon colors
 
 | BusPirate Signal | AVR Signal | ISP pin (6) | BusPirate Cable Color (SparkFun) | ATtiny2313 Pin | ATmega328P pin |
 |------------------|------------|-------------|----------------------------------|----------------|----------------|
@@ -41,3 +45,10 @@ Files in `HelloWorld` are files created mostly when following the [Getting Start
 | MOSI             | MOSI       | 4           | Pink / Orange                    | 17             | 17 (PB3)       |
 | MISO             | MISO       | 1           | Brown                            | 18             | 18 (PB4)       |
 | SCLK/CLK         | SCK        | 3           | Yellow                           | 19             | 19 (PB5)       |
+
+- Using the BusPirate as a power source for the circuit
+	- ![](https://i.imgur.com/owis6JX.png)
+
+## AVRDUDE
+- `avrdude -c buspirate -p attiny2313 -P COM3 -v`
+- `avrdude -c buspirate -p attiny2313 -P COM3 -u -U flash:w:HelloWorld.hex`
