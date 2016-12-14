@@ -32,6 +32,7 @@ Files in `HelloWorld` are files created mostly when following the [Getting Start
 ![](https://i.imgur.com/nHZgfFE.png)
 - [Pin mapping to AVR](http://dangerousprototypes.com/docs/Bus_Pirate_AVR_Programming)
 ![](https://i.imgur.com/kDTiDIe.png)
+
 | BusPirate Signal | AVR Signal | ISP pin (6) | BusPirate Cable Color (SparkFun) | ATtiny2313 Pin | ATmega328P pin |
 |------------------|------------|-------------|----------------------------------|----------------|----------------|
 | GND              | GND        | 6           | Black                            | 10             | 8              |
