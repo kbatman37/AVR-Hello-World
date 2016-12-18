@@ -31,12 +31,6 @@ Files in `HelloWorld` are files created mostly when following the [Getting Start
 
 **NOTE TO SELF: run wire directly, ribbon cable does not work**
 
-- SparkFun cable mapping
-	- ![](https://i.imgur.com/nHZgfFE.png)
-- [Pin mapping to AVR](http://dangerousprototypes.com/docs/Bus_Pirate_AVR_Programming)
-	- ![](https://i.imgur.com/kDTiDIe.png)
-- Table defined above with ribbon colors
-
 | BusPirate Signal | AVR Signal | ISP pin (6) | BusPirate Cable Color (SparkFun) | ATtiny2313 Pin | ATmega328P pin |
 |------------------|------------|-------------|----------------------------------|----------------|----------------|
 | GND              | GND        | 6           | Black                            | 10             | 8              |
@@ -47,7 +41,7 @@ Files in `HelloWorld` are files created mostly when following the [Getting Start
 | SCLK/CLK         | SCK        | 3           | Yellow                           | 19             | 19 (PB5)       |
 
 - Using the BusPirate as a power source for the circuit
-	- ![](https://i.imgur.com/owis6JX.png)
+	- <img src='https://i.imgur.com/owis6JX.png' height='350px'/>
 
 ## AVRDUDE
 - `avrdude -c buspirate -p attiny2313 -P COM3 -v`
