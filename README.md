@@ -31,6 +31,9 @@ Files in `HelloWorld` are files created mostly when following the [Getting Start
 
 **NOTE TO SELF: run wire directly, ribbon cable does not work**
 
+- SparkFun cable mapping
+	- ![](https://i.imgur.com/nHZgfFE.png)
+
 | BusPirate Signal | AVR Signal | ISP pin (6) | BusPirate Cable Color (SparkFun) | ATtiny2313 Pin | ATmega328P pin |
 |------------------|------------|-------------|----------------------------------|----------------|----------------|
 | GND              | GND        | 6           | Black                            | 10             | 8              |
