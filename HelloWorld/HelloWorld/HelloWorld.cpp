@@ -11,14 +11,14 @@
 #define set_input(portdir,pin) portdir &= ~(1<<pin)
 #define set_output(portdir,pin) portdir |= (1<<pin)
 #define enableInterupt(port,pin) port |= (1 << pin);
-#define isInputHigh(port,pin) !(port & (1<<pin))
+#define isInputLow(port,pin) !(port & (1<<pin))
 #define enableInteruptsGlobally() GIMSK |= (1 << PCIE);
 
 
 
 // the handler for the interrupt of pin1
 ISR(PCINT_vect){
-	if(isInputHigh(PINB,PB1))
+	if(isInputLow(PINB,PB1))
 	{
 		output_high(PORTB,PB4);
 	}
@@ -49,6 +49,6 @@ int main(void)
 	while(1)
 	{
 		// Tell it to sleep
-		sleep_mode();
+		//sleep_mode();
 	}
 }
