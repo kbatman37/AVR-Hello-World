@@ -14,8 +14,6 @@
 #define isInputLow(port,pin) !(port & (1<<pin))
 #define enableInteruptsGlobally() GIMSK |= (1 << PCIE);
 
-
-
 // the handler for the interrupt of pin1
 ISR(PCINT_vect){
 	if(isInputLow(PINB,PB1))
