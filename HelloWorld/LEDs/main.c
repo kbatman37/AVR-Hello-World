@@ -37,16 +37,33 @@ void Initialize()
 {
 	LED1_SET_OUTPUT;
 	LED2_SET_OUTPUT;
+	LED3_SET_OUTPUT;
+	LED4_SET_OUTPUT;
 
+	SWTCH1_SET_INPUT;
+	SWTCH2_SET_INPUT;
 	BUTTON1_SET_INPUT;
-	BUTTON1_SET_HIGH; // set pull-up resistor
-
 	BUTTON2_SET_INPUT;
-	BUTTON2_SET_HIGH; // set pull-up resistor
+	BUTTON3_SET_INPUT;
+	BUTTON4_SET_INPUT;
+	
+	// set pull-up resistor
+	SWTCH1_SET_HIGH;
+	SWTCH2_SET_HIGH;
+	BUTTON1_SET_HIGH;
+	BUTTON2_SET_HIGH;
+	BUTTON3_SET_HIGH;
+	BUTTON4_SET_HIGH;
 
 	// set interrupt for B1
+	SWTCH1_ENABLE_INTERUPT;
+	SWTCH2_ENABLE_INTERUPT;
 	BUTTON1_ENABLE_INTERUPT;
 	BUTTON2_ENABLE_INTERUPT;
+	BUTTON3_ENABLE_INTERUPT;
+	BUTTON4_ENABLE_INTERUPT;
+	
+	// globally enable interrupts
 	ENABLE_INTERUPTS_GLOBALLY;
 	sei();
 }
@@ -54,38 +71,192 @@ void Initialize()
 
 
 ISR(PCINT_vect){
-	cli();
 	
-	_delay_ms(500);
+	if(SWTCH1_IS_LOW){
+		if(SWTCH2_IS_LOW){
 
-	if(BUTTON1_IS_LOW)
-	{
-		if(BUTTON2_IS_LOW){
-			LED1_SET_HIGH;
-			LED2_SET_HIGH;
-		}
-		else{
-			LED1_SET_HIGH;
-			LED2_SET_LOW;
-		}
-	}
-	else
-	{
-		if(BUTTON2_IS_LOW){
-			LED1_SET_LOW;
-			LED2_SET_HIGH;
-		}
-		else{
+			cli();
+
 			LED1_SET_LOW;
 			LED2_SET_LOW;
+			LED3_SET_LOW;
+			LED4_SET_LOW;
+
+			if(BUTTON1_IS_LOW){
+				for(int i = 0 ; i < 2; i++){
+				LED1_SET_HIGH;
+				_delay_ms(300);
+				LED1_SET_LOW;
+				
+				LED2_SET_HIGH;
+				_delay_ms(300);
+				LED2_SET_LOW;
+				
+				LED3_SET_HIGH;
+				_delay_ms(300);
+				LED3_SET_LOW;
+
+				LED4_SET_HIGH;
+				_delay_ms(300);
+				LED4_SET_LOW;
+				}
+			}
+			else
+			if(BUTTON2_IS_LOW){
+				for(int i = 0 ; i < 2; i++){				
+				LED2_SET_HIGH;
+				_delay_ms(300);
+				LED2_SET_LOW;
+				
+				LED3_SET_HIGH;
+				_delay_ms(300);
+				LED3_SET_LOW;
+
+				LED4_SET_HIGH;
+				_delay_ms(300);
+				LED4_SET_LOW;
+
+				LED1_SET_HIGH;
+				_delay_ms(300);
+				LED1_SET_LOW;
+				}
+			}
+			else
+			if(BUTTON3_IS_LOW){
+			for(int i = 0 ; i < 2; i++){
+				LED3_SET_HIGH;
+				_delay_ms(300);
+				LED3_SET_LOW;
+
+				LED4_SET_HIGH;
+				_delay_ms(300);
+				LED4_SET_LOW;
+
+				LED1_SET_HIGH;
+				_delay_ms(300);
+				LED1_SET_LOW;
+				
+				LED2_SET_HIGH;
+				_delay_ms(300);
+				LED2_SET_LOW;
+				}
+			}
+			else
+			if(BUTTON4_IS_LOW){
+			for(int i = 0 ; i < 2; i++){
+				LED4_SET_HIGH;
+				_delay_ms(300);
+				LED4_SET_LOW;
+
+				LED1_SET_HIGH;
+				_delay_ms(300);
+				LED1_SET_LOW;
+				
+				LED2_SET_HIGH;
+				_delay_ms(300);
+				LED2_SET_LOW;
+				
+				LED3_SET_HIGH;
+				_delay_ms(300);
+				LED3_SET_LOW;
+				}
+			}
+
+			sei();
+
+		}
+		else{
+			//debounce
+			_delay_ms(100);
+
+			if(BUTTON1_IS_LOW){
+				LED1_TOGGLE;
+			}
+			
+			if(BUTTON2_IS_LOW){
+				LED2_TOGGLE;
+			}
+
+			if(BUTTON3_IS_LOW){
+				LED3_TOGGLE;
+			}
+
+			if(BUTTON4_IS_LOW){
+				LED4_TOGGLE;
+			}
+		}
+	}
+	else{
+		if(SWTCH2_IS_LOW){
+			LED1_SET_HIGH;
+			LED2_SET_HIGH;
+			LED3_SET_HIGH;
+			LED4_SET_HIGH;
+
+			if(BUTTON1_IS_LOW){
+				LED1_SET_LOW;
+			}
+			else{
+				LED1_SET_HIGH;
+			}
+			
+			if(BUTTON2_IS_LOW){
+				LED2_SET_LOW;
+			}
+			else{
+				LED2_SET_HIGH;
+			}
+
+			if(BUTTON3_IS_LOW){
+				LED3_SET_LOW;
+			}
+			else{
+				LED3_SET_HIGH;
+			}
+
+			if(BUTTON4_IS_LOW){
+				LED4_SET_LOW;
+			}
+			else{
+				LED4_SET_HIGH;
+			}
+		}
+		else{
+			LED1_SET_LOW;
+			LED2_SET_LOW;
+			LED3_SET_LOW;
+			LED4_SET_LOW;
+
+			if(BUTTON1_IS_LOW){
+				LED1_SET_HIGH;
+			}
+			else{
+				LED1_SET_LOW;
+			}
+			
+			if(BUTTON2_IS_LOW){
+				LED2_SET_HIGH;
+			}
+			else{
+				LED2_SET_LOW;
+			}
+
+			if(BUTTON3_IS_LOW){
+				LED3_SET_HIGH;
+			}
+			else{
+				LED3_SET_LOW;
+			}
+
+			if(BUTTON4_IS_LOW){
+				LED4_SET_HIGH;
+			}
+			else{
+				LED4_SET_LOW;
+			}
 		}
 	}
 
-	_delay_ms(500);
-	LED1_SET_LOW;
-	LED2_SET_LOW;
-	
-	sei();
 }
 
 
