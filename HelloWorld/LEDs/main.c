@@ -5,6 +5,8 @@
  * Author : David
  */ 
 
+#define F_CPU 1000000UL // we are specifying 1MHz clock frequency (as a unsigned long)
+
 // Standard AVR includes
 #include <avr/io.h>
 #include <util/delay.h>
@@ -24,8 +26,6 @@
 #include "macros.h"
 #include "pinDefinitions.h"
 
-#define F_CPU 1000000UL // we are specifying 1MHz clock frequency (as a unsigned long)
-
 #define ENABLE_INTERUPTS_GLOBALLY GIMSK |= (1 << PCIE);
 #define TRUE 1
 #define FALSE 0
@@ -39,6 +39,7 @@ void Initialize()
 	LED2_SET_OUTPUT;
 	LED3_SET_OUTPUT;
 	LED4_SET_OUTPUT;
+	POWER_LED_SET_OUTPUT;
 
 	SWTCH1_SET_INPUT;
 	SWTCH2_SET_INPUT;
@@ -263,6 +264,9 @@ ISR(PCINT_vect){
 int main(void)
 {
 	Initialize();
+
+	POWER_LED_SET_HIGH;
+
     /* Replace with your application code */
     while (1) 
     {
