@@ -96,10 +96,10 @@
 #define SWTCH2_IS_HIGH             (SWTCH2_PIN & _BV(SWTCH2))
 #define SWTCH2_IS_LOW              !(SWTCH2_PIN & _BV(SWTCH2))
 
-#define BUTTON1                     PD6
-#define BUTTON1_PORT                PORTD
-#define BUTTON1_PIN                 PIND
-#define BUTTON1_DDR                 DDRD
+#define BUTTON1                     PB0
+#define BUTTON1_PORT                PORTB
+#define BUTTON1_PIN                 PINB
+#define BUTTON1_DDR                 DDRB
 #define BUTTON1_INTERUPT			PCMSK
 #define BUTTON1_ENABLE_INTERUPT		BUTTON1_INTERUPT |= _BV(BUTTON1)
 #define BUTTON1_SET_OUTPUT          BUTTON1_DDR |= _BV(BUTTON1)

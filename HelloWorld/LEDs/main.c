@@ -29,6 +29,201 @@
 #define ENABLE_INTERUPTS_GLOBALLY GIMSK |= (1 << PCIE);
 #define TRUE 1
 #define FALSE 0
+
+void LEDInvertButton()
+{
+	LED1_SET_HIGH;
+	LED2_SET_HIGH;
+	LED3_SET_HIGH;
+	LED4_SET_HIGH;
+
+	if(BUTTON1_IS_LOW){
+		LED1_SET_LOW;
+	}
+	else{
+		LED1_SET_HIGH;
+	}
+	
+	if(BUTTON2_IS_LOW){
+		LED2_SET_LOW;
+	}
+	else{
+		LED2_SET_HIGH;
+	}
+
+	if(BUTTON3_IS_LOW){
+		LED3_SET_LOW;
+	}
+	else{
+		LED3_SET_HIGH;
+	}
+
+	if(BUTTON4_IS_LOW){
+		LED4_SET_LOW;
+	}
+	else{
+		LED4_SET_HIGH;
+	}
+}
+
+void LEDToggle()
+{
+	//debounce
+	_delay_ms(100);
+
+	if(BUTTON1_IS_LOW){
+		LED1_TOGGLE;
+	}
+	
+	if(BUTTON2_IS_LOW){
+		LED2_TOGGLE;
+	}
+
+	if(BUTTON3_IS_LOW){
+		LED3_TOGGLE;
+	}
+
+	if(BUTTON4_IS_LOW){
+		LED4_TOGGLE;
+	}
+}
+
+void BLINK_POWER_LED(int blinkCount){
+	for (int i = 0 ; i < blinkCount ; i++)
+	{
+		POWER_LED_SET_LOW;
+		_delay_ms(200);
+		POWER_LED_SET_HIGH;
+		_delay_ms(200);
+	}
+}
+
+void LEDChase(int chaseCount)
+{
+	int sleepTime = 150;
+
+	LED1_SET_LOW;
+	LED2_SET_LOW;
+	LED3_SET_LOW;
+	LED4_SET_LOW;
+
+	if(BUTTON1_IS_LOW){
+		for(int i = 0 ; i < chaseCount; i++){
+		LED1_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED1_SET_LOW;
+		
+		LED2_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED2_SET_LOW;
+		
+		LED3_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED3_SET_LOW;
+
+		LED4_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED4_SET_LOW;
+		}
+	}
+	else
+	if(BUTTON2_IS_LOW){
+		for(int i = 0 ; i < chaseCount; i++){				
+		LED2_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED2_SET_LOW;
+		
+		LED3_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED3_SET_LOW;
+
+		LED4_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED4_SET_LOW;
+
+		LED1_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED1_SET_LOW;
+		}
+	}
+	else
+	if(BUTTON3_IS_LOW){
+	for(int i = 0 ; i < chaseCount; i++){
+		LED3_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED3_SET_LOW;
+
+		LED4_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED4_SET_LOW;
+
+		LED1_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED1_SET_LOW;
+		
+		LED2_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED2_SET_LOW;
+		}
+	}
+	else
+	if(BUTTON4_IS_LOW){
+	for(int i = 0 ; i < chaseCount; i++){
+		LED4_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED4_SET_LOW;
+
+		LED1_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED1_SET_LOW;
+		
+		LED2_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED2_SET_LOW;
+		
+		LED3_SET_HIGH;
+		_delay_ms(sleepTime);
+		LED3_SET_LOW;
+		}
+	}
+}
+
+void LEDFollowsButton()
+{
+	LED1_SET_LOW;
+	LED2_SET_LOW;
+	LED3_SET_LOW;
+	LED4_SET_LOW;
+
+	if(BUTTON1_IS_LOW){
+		LED1_SET_HIGH;
+	}
+	else{
+		LED1_SET_LOW;
+	}
+	
+	if(BUTTON2_IS_LOW){
+		LED2_SET_HIGH;
+	}
+	else{
+		LED2_SET_LOW;
+	}
+
+	if(BUTTON3_IS_LOW){
+		LED3_SET_HIGH;
+	}
+	else{
+		LED3_SET_LOW;
+	}
+
+	if(BUTTON4_IS_LOW){
+		LED4_SET_HIGH;
+	}
+	else{
+		LED4_SET_LOW;
+	}
+}
+
 typedef unsigned char bool;
 
 //volatile bool interuptSeen;
@@ -75,186 +270,24 @@ ISR(PCINT_vect){
 	
 	if(SWTCH1_IS_LOW){
 		if(SWTCH2_IS_LOW){
-
 			cli();
-
-			LED1_SET_LOW;
-			LED2_SET_LOW;
-			LED3_SET_LOW;
-			LED4_SET_LOW;
-
-			if(BUTTON1_IS_LOW){
-				for(int i = 0 ; i < 2; i++){
-				LED1_SET_HIGH;
-				_delay_ms(300);
-				LED1_SET_LOW;
-				
-				LED2_SET_HIGH;
-				_delay_ms(300);
-				LED2_SET_LOW;
-				
-				LED3_SET_HIGH;
-				_delay_ms(300);
-				LED3_SET_LOW;
-
-				LED4_SET_HIGH;
-				_delay_ms(300);
-				LED4_SET_LOW;
-				}
-			}
-			else
-			if(BUTTON2_IS_LOW){
-				for(int i = 0 ; i < 2; i++){				
-				LED2_SET_HIGH;
-				_delay_ms(300);
-				LED2_SET_LOW;
-				
-				LED3_SET_HIGH;
-				_delay_ms(300);
-				LED3_SET_LOW;
-
-				LED4_SET_HIGH;
-				_delay_ms(300);
-				LED4_SET_LOW;
-
-				LED1_SET_HIGH;
-				_delay_ms(300);
-				LED1_SET_LOW;
-				}
-			}
-			else
-			if(BUTTON3_IS_LOW){
-			for(int i = 0 ; i < 2; i++){
-				LED3_SET_HIGH;
-				_delay_ms(300);
-				LED3_SET_LOW;
-
-				LED4_SET_HIGH;
-				_delay_ms(300);
-				LED4_SET_LOW;
-
-				LED1_SET_HIGH;
-				_delay_ms(300);
-				LED1_SET_LOW;
-				
-				LED2_SET_HIGH;
-				_delay_ms(300);
-				LED2_SET_LOW;
-				}
-			}
-			else
-			if(BUTTON4_IS_LOW){
-			for(int i = 0 ; i < 2; i++){
-				LED4_SET_HIGH;
-				_delay_ms(300);
-				LED4_SET_LOW;
-
-				LED1_SET_HIGH;
-				_delay_ms(300);
-				LED1_SET_LOW;
-				
-				LED2_SET_HIGH;
-				_delay_ms(300);
-				LED2_SET_LOW;
-				
-				LED3_SET_HIGH;
-				_delay_ms(300);
-				LED3_SET_LOW;
-				}
-			}
-
+			//BLINK_POWER_LED(1);
+			LEDChase(2);
 			sei();
-
 		}
 		else{
-			//debounce
-			_delay_ms(100);
-
-			if(BUTTON1_IS_LOW){
-				LED1_TOGGLE;
-			}
-			
-			if(BUTTON2_IS_LOW){
-				LED2_TOGGLE;
-			}
-
-			if(BUTTON3_IS_LOW){
-				LED3_TOGGLE;
-			}
-
-			if(BUTTON4_IS_LOW){
-				LED4_TOGGLE;
-			}
+			//BLINK_POWER_LED(2);
+			LEDToggle();
 		}
 	}
 	else{
 		if(SWTCH2_IS_LOW){
-			LED1_SET_HIGH;
-			LED2_SET_HIGH;
-			LED3_SET_HIGH;
-			LED4_SET_HIGH;
-
-			if(BUTTON1_IS_LOW){
-				LED1_SET_LOW;
-			}
-			else{
-				LED1_SET_HIGH;
-			}
-			
-			if(BUTTON2_IS_LOW){
-				LED2_SET_LOW;
-			}
-			else{
-				LED2_SET_HIGH;
-			}
-
-			if(BUTTON3_IS_LOW){
-				LED3_SET_LOW;
-			}
-			else{
-				LED3_SET_HIGH;
-			}
-
-			if(BUTTON4_IS_LOW){
-				LED4_SET_LOW;
-			}
-			else{
-				LED4_SET_HIGH;
-			}
+			//BLINK_POWER_LED(3);
+			LEDInvertButton();
 		}
 		else{
-			LED1_SET_LOW;
-			LED2_SET_LOW;
-			LED3_SET_LOW;
-			LED4_SET_LOW;
-
-			if(BUTTON1_IS_LOW){
-				LED1_SET_HIGH;
-			}
-			else{
-				LED1_SET_LOW;
-			}
-			
-			if(BUTTON2_IS_LOW){
-				LED2_SET_HIGH;
-			}
-			else{
-				LED2_SET_LOW;
-			}
-
-			if(BUTTON3_IS_LOW){
-				LED3_SET_HIGH;
-			}
-			else{
-				LED3_SET_LOW;
-			}
-
-			if(BUTTON4_IS_LOW){
-				LED4_SET_HIGH;
-			}
-			else{
-				LED4_SET_LOW;
-			}
+			//BLINK_POWER_LED(4);
+			LEDFollowsButton();
 		}
 	}
 
@@ -266,6 +299,8 @@ int main(void)
 	Initialize();
 
 	POWER_LED_SET_HIGH;
+	LEDChase(5);
+
 
     /* Replace with your application code */
     while (1) 
